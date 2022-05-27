@@ -1,0 +1,272 @@
+.product {
+  background: $white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: $product-shadow;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  user-select: none;
+
+  &__slider {
+    position: relative;
+    margin-bottom: 12px;
+    background: rgb(207, 207, 207);
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 70.51%;
+    }
+
+    .swiper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+
+      &-pagination {
+        bottom: 12px;
+        left: 20px;
+
+        &-bullet {
+        }
+      }
+    }
+
+    &:hover {
+      .product__bid {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__info {
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+
+    & > div {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__percentage {
+    background: $primary;
+    padding: 8px 6px 5px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: $white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    display: none;
+
+    svg {
+      margin-bottom: 4px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__bid {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    opacity: 1;
+    transition: opacity $transition;
+    cursor: pointer;
+
+    svg {
+      width: 21px;
+      height: 28px;
+    }
+
+    @include up($lg) {
+      opacity: 0;
+    }
+  }
+
+  &__favorite {
+    margin-left: auto;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+
+    path {
+      transition: $transition;
+      fill: $light-blue;
+    }
+
+    & > path {
+      opacity: 0;
+    }
+
+    &:hover {
+      path {
+        fill: $blue;
+        stroke: $blue;
+      }
+    }
+
+    &.active {
+      path,
+      g path {
+        stroke: $blue;
+        fill: $blue;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__number {
+    font-weight: 700;
+    color: $white;
+    position: relative;
+    margin-right: 7px;
+    padding: 4px 20px 3px 0;
+    z-index: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 200%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #1f3a60;
+      z-index: -1;
+      transform: skewX(-15deg);
+    }
+  }
+
+  &__price {
+    margin-top: auto;
+
+    div {
+      &:first-child {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 5px;
+      }
+
+      &:last-child {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+      }
+    }
+  }
+
+  &-dates {
+    display: flex;
+    align-items: center;
+
+    &__item {
+      span {
+        display: block;
+        font-size: 10px;
+        line-height: 12px;
+        color: $blue;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__separator {
+      display: block;
+      width: 12px;
+      height: 1px;
+      background: $secondary;
+      margin: 17px 7px 0;
+    }
+  }
+
+  &__icon-item {
+    display: flex;
+    align-items: center;
+
+    & > svg {
+      width: 17px;
+      height: 17px;
+      margin-right: 7px;
+    }
+
+    &--vin {
+      & > svg {
+        width: 26px !important;
+      }
+    }
+
+    &--truck {
+      font-weight: 500;
+    }
+
+    &--city {
+      span {
+        cursor: pointer;
+        color: #6aa4fb;
+        border-bottom: 1px dashed #6aa4fb;
+      }
+    }
+
+    &.success {
+      color: $primary;
+      font-weight: 500;
+
+      path {
+        fill: $primary;
+      }
+    }
+  }
+
+  &__vin-status {
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  &__auction-type {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__model {
+    font-weight: 600;
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 12px;
+  }
+
+  &.nds {
+    .product__percentage {
+      display: block;
+    }
+  }
+}

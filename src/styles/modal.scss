@@ -1,0 +1,56 @@
+.modal {
+  &-header,
+  &-footer,
+  &-body {
+    padding: 0;
+    border: none;
+  }
+
+  &-backdrop {
+    &.show {
+      opacity: 0.2;
+    }
+  }
+
+  &-lg {
+    max-width: 628px;
+  }
+
+  &-sm {
+    max-width: 440px;
+  }
+
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    margin-bottom: 24px;
+
+    svg {
+      margin-left: 8px;
+    }
+  }
+
+  &-content {
+    padding: 40px;
+  }
+
+  &-close {
+    position: absolute;
+    top: 23px;
+    right: 17px;
+    cursor: pointer;
+
+    path {
+      fill: $light-blue;
+      transition: $transition;
+    }
+
+    &:hover {
+      path {
+        fill: $blue;
+      }
+    }
+  }
+}

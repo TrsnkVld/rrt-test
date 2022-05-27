@@ -1,0 +1,53 @@
+.footer {
+  background: #5d7592;
+  padding: 25px 0;
+  position: relative;
+  overflow: hidden;
+  color: $white;
+
+  .container {
+    z-index: 1;
+    position: relative;
+  }
+
+  &__logo {
+    @extend .header-main__logo;
+
+    path {
+      fill: $white;
+    }
+  }
+
+  &__phone {
+    @extend .header-main__phone;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #637a96;
+    transform: rotate(-40deg);
+    transform-origin: right top;
+
+    @include up($md) {
+      transform: rotate(-30deg);
+    }
+
+    @include up($xxl) {
+      transform: rotate(-20deg);
+    }
+  }
+
+  @include up($md) {
+    padding: 55px 0;
+  }
+
+  @include up($xxl) {
+    padding: 85px 0;
+  }
+}
